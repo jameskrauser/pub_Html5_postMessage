@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--http://xyz.cinc.biz/2014/05/html5-postmessage-text.html  -->
+<html>
+    <head>
+     <meta charset="UTF-8">
+     <title>HTML5 使用postMessage在不同網頁之間傳送文字訊息(傳送頁面)</title>
+    <style>
+    </style>
+
+    <script>
+     var new_win;
+     /* 開啟另一個網頁 */
+      function openWin() {
+               //new_win = window.open("http://demo2.cinc.biz/html5-postmessage/text-new.html");
+               new_win =  window.open("http://127.0.0.1/receive.html");
+      }
+
+      /* 傳送文字訊息 */
+      function sendMsg() {
+               var msg = document.getElementById("msg_txt").value;
+               //new_win.postMessage(msg, "http://demo2.cinc.biz");//表示要送給demo2.example.com網域
+               new_win.postMessage(msg , "http://127.0.0.1" );
+     }
+    </script>
+    </head>
+ <body>
+        HTML5 使用postMessage在不同網頁之間傳送文字訊息(傳送頁面)<br>
+        測試範例：<br>
+        step1.<button onclick="openWin()">開啟接收訊息頁面</button><br>
+        step2.<input id="msg_txt"  type="text" value="msg test"/>
+         <button onclick="sendMsg()">傳送文字訊息到接收頁面</button>
+  </body>
+  </html>
